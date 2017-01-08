@@ -29,6 +29,15 @@ public class BaseController {
 	}
 	
 	protected MultipartFile getMultipartFileFromRequest(HttpServletRequest request) {
+		if(request == null) {
+			return null;
+		}
+		byte[] content = this.getRequestPostBytes(request);
+		
+		if(content == null || content.length == 0) {
+			return null;
+		}
+//		MultipartFile file = Base64DecodedMultipartFile(request);
 		return null;
 	}
 }
