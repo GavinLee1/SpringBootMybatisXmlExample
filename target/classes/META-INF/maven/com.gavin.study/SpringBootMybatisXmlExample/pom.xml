@@ -72,6 +72,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Below two dependencies are for Swagger API. -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
