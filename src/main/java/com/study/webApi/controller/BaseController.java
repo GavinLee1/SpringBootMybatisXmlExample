@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.study.infrastructure.extension.HttpRequestUtility;
+import com.study.infrastructure.exception.ForbiddenException;
 import com.study.infrastructure.extension.Base64DecodedMultipartFile;
 
 public class BaseController {
@@ -49,9 +50,25 @@ public class BaseController {
 		return HttpRequestUtility.getRequestPostStr(request);
 	}
 	
-	protected String getRequestPostData(HttpServletRequest request) {
+	protected String getRequestPostData(HttpServletRequest request) throws ForbiddenException{
 		if(request == null) {
-			throws new ForbiddenException();
+			throw new ForbiddenException();
 		}
+		Object bodyData = request.getAttribute("bodyData");
+		String data = (bodyData == null)?null:(String)bodyData;
+		
+		if(data == null || data.isEmpty()) {
+			try {
+				data = this.getRequestPostString(request);
+			} catch (IOException e) {
+				log.error("An error occures while retriving post data " + e);
+				throw new ForbiddenException();
+			}
+		}
+		return data;
+	}
+	
+	protected String getRemoteHost(HttpServletRequest request) {
+		return HttpRequestUtility.getRemoteHost(request);
 	}
 }
