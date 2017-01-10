@@ -34,7 +34,41 @@ This project is a demo project for myself to learn:
      * @throws DatabaseException
      *          Thrown if an exception occurs when trying to execute the action.
      */
-    T Apply(SqlSession sqlSession) throws DatabaseException;
-}   
+    T Apply(SqlSession sqlSession) throws DatabaseException;  
+    }   
 ```  
-4.  
+4. Use `ExecuteAction` to help easier use Mybatis Transation.  
+```  
+/**
+     * Execute the action received as parameter.
+     *
+     * @param action   object that specifies the MyBatis action
+     * @param readOnly if this parameter is true the transaction is read-only
+     * @param <T>      object's returned type.
+     * @return a result object returned by the action.
+     * @throws DatabaseException thrown if error occurred when trying to execute the action.
+     */
+    public <T> T ExecuteAction(MybatisAction<T> action, boolean readOnly) throws DatabaseException {
+        SqlSession session = null;
+        try {
+            session = MybatisUtility.GetSession();
+            T results = action.Apply(session);
+            if (readOnly) {
+                session.commit();
+            }
+            return results;
+        } catch (Throwable e) {
+            if (readOnly && session != null) {
+                session.rollback();
+            }
+            log.error("An error has occurred when trying to execute action.", e);
+            throw e;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
+    }   
+```  
+5. 
