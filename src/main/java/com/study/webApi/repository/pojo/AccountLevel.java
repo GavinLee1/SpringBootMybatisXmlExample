@@ -1,4 +1,4 @@
-package com.study.webApi.repositroy.pojo;
+package com.study.webApi.repository.pojo;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

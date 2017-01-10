@@ -2,18 +2,20 @@ package com.study.webApi.repository.mybatis.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.study.infrastructure.exception.DatabaseException;
 import com.study.webApi.repository.mybatis.interf.IAccountLevelRepository;
-import com.study.webApi.repositroy.pojo.AccountLevel;
+import com.study.webApi.repository.pojo.AccountLevel;
 
 import java.sql.Timestamp;
 
+@Component
 public class AccountLevelRepository extends Repository<AccountLevel, Integer> implements IAccountLevelRepository{
 
-	protected AccountLevelRepository(Class<AccountLevel> typeClass, String columnName, String tableName) {
-		super(typeClass, columnName, tableName);
-		// TODO Auto-generated constructor stub
-	}
+	public AccountLevelRepository() {
+        super(AccountLevel.class, AccountLevel.COLUMN_ID, AccountLevel.TABLE_NAME);
+    }
 
 	@Override
 	public AccountLevel init(int id) throws DatabaseException {

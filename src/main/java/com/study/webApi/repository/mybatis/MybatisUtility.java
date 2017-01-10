@@ -14,7 +14,7 @@ import com.study.infrastructure.exception.DatabaseException;
 
 public class MybatisUtility {
 	/**
-     * {@link BatisUtility}'s Logger.
+     * {@link MybatisUtility}'s Logger.
      */
 	private static final Logger log = LoggerFactory.getLogger(MybatisUtility.class);
 
@@ -28,7 +28,7 @@ public class MybatisUtility {
     /**
      * mybatis configuration file path.
      */
-    private static final String RESOURCE = "mybatis/mybatis-config.xml";//TODO:Add resource file
+    private static final String RESOURCE = "mybatis/mybatis-config.xml";
 
     /**
      * Session factory.
@@ -54,7 +54,7 @@ public class MybatisUtility {
      * Get ibatis sql session.
      *
      * @return {@link SqlSession}.
-     * @throws DataBaseException
+     * @throws DatabaseException
      *             thrown if error occurred when trying to get sql session.
      */
     public static SqlSession GetSession() throws DatabaseException {
