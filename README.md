@@ -37,9 +37,9 @@ This project is a demo project for myself to learn:
     T Apply(SqlSession sqlSession) throws DatabaseException;  
     }   
 ```  
-4. Use `ExecuteAction` to help easier use Mybatis Transation.  
+4.Use method`ExecuteAction` to help easier use Mybatis Transation.  
 ```  
-/**
+    /**
      * Execute the action received as parameter.
      *
      * @param action   object that specifies the MyBatis action
