@@ -9,8 +9,6 @@ import org.junit.Test;
 import com.study.infrastructure.exception.DatabaseException;
 import com.study.webApi.repository.mybatis.interf.IAccountLevelRepository;
 import com.study.webApi.repository.pojo.AccountLevel;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.*;
 
