@@ -42,6 +42,11 @@ public abstract class Repository <T extends EntityBase<TId>, TId extends Seriali
      */
     protected static final String PREFIX_FIND_QUERY = "find";
     
+    protected Repository(Class<T> typeClass, String columnName, String tableName) {
+    	this.typeClass = typeClass;
+    	this.columnIdName = columnName;
+    	this.tableName = tableName;
+    }
     /**
      * {@inheritDoc}
      */
