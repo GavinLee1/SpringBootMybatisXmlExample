@@ -10,7 +10,7 @@ public interface MybatisAction<T> {
      * @param sqlSession
      *            mybatis sqlSession
      * @return object
-     * @throws DataBaseException
+     * @throws DatabaseException
      *             Thrown if an exception occurs when trying to execute the action.
      */
     T Apply(SqlSession sqlSession) throws DatabaseException;

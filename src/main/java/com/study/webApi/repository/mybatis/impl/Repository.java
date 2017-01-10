@@ -88,7 +88,7 @@ public abstract class Repository <T extends EntityBase<TId>, TId extends Seriali
      * @param readOnly if this parameter is true the transaction is read-only
      * @param <T>      object's returned type.
      * @return a result object returned by the action.
-     * @throws DataBaseException thrown if error occurred when trying to execute the action.
+     * @throws DatabaseException thrown if error occurred when trying to execute the action.
      */
     public <T> T ExecuteAction(MybatisAction<T> action, boolean readOnly) throws DatabaseException {
         SqlSession session = null;
