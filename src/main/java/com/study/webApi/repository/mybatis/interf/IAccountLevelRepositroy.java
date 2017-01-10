@@ -1,4 +1,4 @@
-package com.study.webApi.mybatis.interf;
+package com.study.webApi.repository.mybatis.interf;
 
 import com.study.infrastructure.exception.DatabaseException;
 import com.study.infrastructure.repositroy.IRepository;
