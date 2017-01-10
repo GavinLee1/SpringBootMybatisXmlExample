@@ -37,7 +37,7 @@ This project is a demo project for myself to learn:
     T Apply(SqlSession sqlSession) throws DatabaseException;  
     }   
 ```  
-4.Use method`ExecuteAction` to help easier use Mybatis Transation.  
+ 4.Use method`ExecuteAction` to help easier use Mybatis Transation.  
 ```  
     /**
      * Execute the action received as parameter.
@@ -71,4 +71,16 @@ This project is a demo project for myself to learn:
 
     }   
 ```  
-5. 
+ 5.The way to organize mybatis-config.xml, database configuration is integreatd in this file. And mappers should be registered here.  
+ 6.The `*Mapper.xml` should be corresponding to each Entity. Especially, `<resultMap></resuleMap>` should contain all colums in the database table. And keep an eay on the `namespace` varable, it is a key for mapping xml files.  
+ 7.A `ResponseWrapper` is here to package the response message.  
+ 8.The way to self-define exceptions can alse be used later.  
+ 9.A `MybatisUility` is here to get `SqlSeesion` of Mybatis, but later, better to use `@Configuration`,`@Bean` to inject them automatically.  
+ 10.The `Gson` is also used in this project.  
+ ```  
+ 	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.6.2</version>
+	</dependency>  
+ ```
